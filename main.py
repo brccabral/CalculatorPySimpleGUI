@@ -69,7 +69,9 @@ while True:
         window = create_window(event)
 
     if event in digits:
-        print(event)
+        current_num.append(event)
+        num_string = "".join(current_num)
+        window["-OUTPUT-"].update(num_string)
 
     if event in operations:
         print(event)
