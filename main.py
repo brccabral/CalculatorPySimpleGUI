@@ -58,6 +58,7 @@ digits = [f"{number}" for number in range(10)] + ["."]
 operations = ["+", "-", "/", "*"]
 
 current_num = []
+full_operation = []
 
 while True:
     event, values = window.read()
@@ -74,7 +75,10 @@ while True:
         window["-OUTPUT-"].update(num_string)
 
     if event in operations:
-        print(event)
+        full_operation.append("".join(current_num))
+        current_num = []
+        full_operation.append(event)
+        window["-OUTPUT-"].update("")
 
     if event in "Enter":
         print(event)
