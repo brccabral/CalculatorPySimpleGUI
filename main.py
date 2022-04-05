@@ -1,6 +1,10 @@
 import PySimpleGUI as sg
 
 
+sg.theme("LightGrey1")
+print(sg.theme_list())  # prints all themes
+
+
 layout = [
     [sg.Text("output", key="-OUTPUT-")],
     [sg.Button("Clear", key="-CLEAR-"), sg.Button("Enter", key="-ENTER-")],
