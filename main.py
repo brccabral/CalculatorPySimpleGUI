@@ -4,6 +4,7 @@ import PySimpleGUI as sg
 sg.theme("LightGrey1")
 print(sg.theme_list())  # prints all themes
 
+sg.set_options(font="Franklin 14")
 
 layout = [
     [sg.Text("output", key="-OUTPUT-")],
