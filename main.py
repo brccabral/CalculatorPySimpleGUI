@@ -75,15 +75,24 @@ while True:
         window["-OUTPUT-"].update(num_string)
 
     if event in operations:
-        full_operation.append("".join(current_num))
+        output: sg.Text = window["-OUTPUT-"]
+        full_operation.append(output.DisplayText)
         current_num = []
         full_operation.append(event)
         window["-OUTPUT-"].update("")
 
     if event in "Enter":
-        print(event)
+        output: sg.Text = window["-OUTPUT-"]
+        full_operation.append(output.DisplayText)
+        result = eval(" ".join(full_operation))
+        window["-OUTPUT-"].update(result)
+        current_num = []
+        full_operation = []
 
     if event in "Clear":
-        print(event)
+        current_num = []
+        full_operation = []
+        window["-OUTPUT-"].update("")
+
 
 window.close()
