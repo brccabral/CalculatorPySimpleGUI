@@ -11,7 +11,7 @@ def create_window(theme):
     layout = [
         [
             sg.Text(
-                "output",
+                "",
                 key="-OUTPUT-",
                 font="Franklin 26",
                 justification="right",
