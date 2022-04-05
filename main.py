@@ -21,31 +21,31 @@ def create_window(theme):
             )
         ],
         [
-            sg.Button("Clear", key="-CLEAR-", expand_x=True),
-            sg.Button("Enter", key="-ENTER-", expand_x=True),
+            sg.Button("Clear", expand_x=True),
+            sg.Button("Enter", expand_x=True),
         ],
         [
-            sg.Button("7", key="-7-", size=button_size),
-            sg.Button("8", key="-8-", size=button_size),
-            sg.Button("9", key="-9-", size=button_size),
-            sg.Button("*", key="-*-", size=button_size),
+            sg.Button("7", size=button_size),
+            sg.Button("8", size=button_size),
+            sg.Button("9", size=button_size),
+            sg.Button("*", size=button_size),
         ],
         [
-            sg.Button("4", key="-4-", size=button_size),
-            sg.Button("5", key="-5-", size=button_size),
-            sg.Button("6", key="-6-", size=button_size),
-            sg.Button("/", key="-/-", size=button_size),
+            sg.Button("4", size=button_size),
+            sg.Button("5", size=button_size),
+            sg.Button("6", size=button_size),
+            sg.Button("/", size=button_size),
         ],
         [
-            sg.Button("1", key="-1-", size=button_size),
-            sg.Button("2", key="-2-", size=button_size),
-            sg.Button("3", key="-3-", size=button_size),
-            sg.Button("-", key="---", size=button_size),
+            sg.Button("1", size=button_size),
+            sg.Button("2", size=button_size),
+            sg.Button("3", size=button_size),
+            sg.Button("-", size=button_size),
         ],
         [
-            sg.Button("0", key="-0-", expand_x=True),
-            sg.Button(".", key="-.-", size=button_size),
-            sg.Button("+", key="-+-", size=button_size),
+            sg.Button("0", expand_x=True),
+            sg.Button(".", size=button_size),
+            sg.Button("+", size=button_size),
         ],
     ]
     return sg.Window("Title", layout)
@@ -54,8 +54,10 @@ def create_window(theme):
 theme_menu = ["menu", ["LightGrey1", "dark", "DarkGray8", "random"]]
 window = create_window("dark")
 
-digits = [f"-{number}-" for number in range(10)] + ["-.-"]
-operations = ["-+-", "---", "-/-", "-*-"]
+digits = [f"{number}" for number in range(10)] + ["."]
+operations = ["+", "-", "/", "*"]
+
+current_num = []
 
 while True:
     event, values = window.read()
@@ -72,10 +74,10 @@ while True:
     if event in operations:
         print(event)
 
-    if event in "-ENTER-":
+    if event in "Enter":
         print(event)
 
-    if event in "-CLEAR-":
+    if event in "Clear":
         print(event)
 
 window.close()
