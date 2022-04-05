@@ -17,6 +17,7 @@ def create_window(theme):
                 justification="right",
                 expand_x=True,
                 pad=(10, 20),
+                right_click_menu=theme_menu,
             )
         ],
         [
@@ -50,11 +51,16 @@ def create_window(theme):
     return sg.Window("Title", layout)
 
 
+theme_menu = ["menu", ["LightGrey1", "dark", "DarkGray8", "random"]]
 window = create_window("dark")
 
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:
         break
+
+    if event in theme_menu[1]:
+        window.close()
+        window = create_window(event)
 
 window.close()
