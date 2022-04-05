@@ -54,6 +54,9 @@ def create_window(theme):
 theme_menu = ["menu", ["LightGrey1", "dark", "DarkGray8", "random"]]
 window = create_window("dark")
 
+digits = [f"-{number}-" for number in range(10)] + ["-.-"]
+operations = ["-+-", "---", "-/-", "-*-"]
+
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:
@@ -62,5 +65,17 @@ while True:
     if event in theme_menu[1]:
         window.close()
         window = create_window(event)
+
+    if event in digits:
+        print(event)
+
+    if event in operations:
+        print(event)
+
+    if event in "-ENTER-":
+        print(event)
+
+    if event in "-CLEAR-":
+        print(event)
 
 window.close()
