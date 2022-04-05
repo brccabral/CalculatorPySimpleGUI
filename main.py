@@ -8,7 +8,16 @@ button_size = (6, 3)
 sg.set_options(font="Franklin 14", button_element_size=button_size)
 
 layout = [
-    [sg.Text("output", key="-OUTPUT-")],
+    [
+        sg.Text(
+            "output",
+            key="-OUTPUT-",
+            font="Franklin 26",
+            justification="right",
+            expand_x=True,
+            pad=(10, 20),
+        )
+    ],
     [
         sg.Button("Clear", key="-CLEAR-", expand_x=True),
         sg.Button("Enter", key="-ENTER-", expand_x=True),
